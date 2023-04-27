@@ -1,5 +1,6 @@
 version: 2.1
 
+#este es un parametro a nivel de pipeline
 parameters:
   name:
     type: string

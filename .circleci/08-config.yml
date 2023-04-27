@@ -2,7 +2,7 @@ version: 2.1
 
 jobs:
   say-hello:
-      parameters:
+      parameters: #este es un parametro a nivel de jobs
         name:
           type: string
           default: Josmir
