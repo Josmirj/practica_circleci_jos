@@ -26,4 +26,4 @@ workflows:
       - say-hello
       - say-bye:
           requires:
-            - say_hello
+            - say-hello
