@@ -2,8 +2,8 @@ version: 2.1
 
 jobs:
   say-hello:
-      parameters:
-        name:
+      parameters: #este es un parametro a nivel de jobs
+        nombre:
           type: string
           default: Josmir
       docker:
@@ -11,7 +11,7 @@ jobs:
       steps:
       - run:
           name: Say hello parameter
-          command: echo Hello, << parameters.name >>
+          command: echo Hello, << parameters.nombre >>
 
 workflows:
   workflow1:
@@ -20,4 +20,4 @@ workflows:
   workflow2:
     jobs:
       - say-hello:
-          name: Genesis
+          nombre: Genesis
