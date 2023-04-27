@@ -15,7 +15,7 @@ jobs:
           command: echo Hello, << pipeline.parameters.name >>
 
 workflows:
-  workflows1:
+  workflow1:
       jobs:
         - say-hello
 
