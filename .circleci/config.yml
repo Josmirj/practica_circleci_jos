@@ -24,6 +24,6 @@ workflows:
   workflow2:
     jobs:
       - say-hello
-      - say-bye
+      - say-bye:
           requires:
             - say_hello
