@@ -5,13 +5,15 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - checkout
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
   say-bye:
     docker:
       - image: cimg/base:stable
-    steps:
+     steps:
+      - checkout
       - run:
           name: "Say bye"
           command: "echo bye, People!" 
@@ -27,3 +29,13 @@ workflows:
       - say-bye:
           requires:
             - say-hello
+  workflow3:
+    jobs:
+      - say-hello
+      - approval:
+          type: approval
+          requires:
+            - say-hello
+      - say-bye:
+          requires:
+            - approval
