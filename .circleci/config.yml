@@ -8,16 +8,16 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  say-leave:
+  say-bye:
     docker:
       - image: cimg/base:stable
-     steps:
+    steps:
       - run:
-          name: "Say adios"
-          command: "echo adios, People!" 
+          name: "Say bye"
+          command: "echo bye, People!" 
 
 workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - say-leave
+      - say-bye
