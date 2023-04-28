@@ -1,0 +1,38 @@
+version: 2.1
+
+commands:
+  dime-hora-espera:
+    parameters:
+      tiempo:
+        type: integer
+        default: 10
+    steps:
+      - run:
+          command: date && sleep << parameters.tiempo >>
+jobs:
+  say-hello:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - dime-hora-espera
+      - run:
+          name: "Say hello"
+          command: "echo Hello, World!"
+      - dime-hora-espera
+  say-bye:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - dime-hora-espera:
+          tiempo: 20
+      - run:
+          name: "Say hello"
+          command: "echo Hello, World!"  
+      - dime-hora-espera:
+          tiempo: 20
+
+workflows:
+  say-workflow:
+    jobs:
+      - say-hello
+      - say-bye
