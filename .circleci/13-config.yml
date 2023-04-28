@@ -12,6 +12,8 @@ jobs:
     steps:
       - checkout: #el checkout me permite bajar el codigo del repositorio al agente
           path: micodigo/ #el path, me permite indicarle una ruta donde quiere que baje el codigo
+      - run: 
+          command: find
       - install-aws-cli
 
 workflows:
