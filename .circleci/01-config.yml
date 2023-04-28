@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - checkout
+      - checkout #el checkout me permite bajar el codigo del repositorio al agente
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
