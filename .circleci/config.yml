@@ -2,9 +2,13 @@ version: 2.1
 
 commands:
   dime-hora-espera:
+    parameters:
+      tiempo:
+        type: integer
+        default: 10
     steps:
       - run:
-          command: date && sleep 10
+          command: date && sleep << parameters.tiempo >>
 jobs:
   say-hello:
     docker:
@@ -19,11 +23,13 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - dime-hora-espera
+      - dime-hora-espera:
+          tiempo: 20
       - run:
           name: "Say hello"
           command: "echo Hello, World!"  
-      - dime-hora-espera
+      - dime-hora-espera:
+          tiempo: 20
 
 workflows:
   say-workflow:
